@@ -1,55 +1,58 @@
-.title {
-  text-align: center;
-  margin-bottom: 0.2em;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: medium;
-  font-weight: bold;
-  margin-top: 0;
-}
-
 body {
-  background-color: black;
-  color: white;
   line-height: 1.6;
-  font-size: 18px;
+  font-size: 1em;
   padding: 0 10px;
   margin: 60px auto;
-  max-width: 700px;
+  max-width: 850px;
+  background-color: black;
+  color: white;
+}
+
+.nes-balloon {
+  color: black;
+  border-image-repeat: unset;
+}
+
+.nes-container {
+  border-color: white;
+}
+
+.nes-container.with-title > .title {
+  background-color: black;
+}
+
+.nes-text.is-primary {
+  color: white;
+}
+
+.nes-list.is-circle li::before {
+  color: white;
+}
+
+.super-big {
+  font-size: 2.5em;
+  margin-right: 10px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.topic {
+  margin-bottom: 2.5rem;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+.social-icons a:hover {
+  text-decoration: none;
 }
 
 .footer {
-  text-align: center;
-}
-
-h2,
-h2,
-h3 {
-  line-height: 1.2;
-}
-
-h2 {
-  font-style: italic;
-  font-size: 18px;
-}
-
-a:link,
-a:visited {
-  color: #ffffff;
-}
-
-code,
-.code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  padding: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(0, 0, 0, 0.04);
-  border-radius: 3px;
+  font-size: 0.7em;
 }
