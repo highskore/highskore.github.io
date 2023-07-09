@@ -8,6 +8,7 @@ body {
   justify-content: center; /* Aligns items vertically at the center */
   font-family: 'Inconsolata', monospace;
   height: 100vh;
+  margin: 0;
 }
 
 .title {
@@ -82,18 +83,60 @@ button {
 .bio-container {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  border: 1px solid rgb(43, 255, 0);
   justify-content: center;
-  height: 100%;
   position: relative;
   font-size: 13px;
   text-shadow: 0 0 1px rgb(43, 255, 0);
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.bio-content {
+  padding: 20px;
+  height: 100%;
+  max-height: 500px;
+  line-height: 1.5;
+  overflow-y: auto;
+  scrollbar-width: thick;
+  scrollbar-color: rgb(43, 255, 0) black;
+}
+
+.bio-content::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+  margin-right: -1-0px;
+}
+
+.bio-content::-webkit-scrollbar-thumb {
+  background-color: rgb(43, 255, 0); /* Set the color of the scrollbar thumb */
+  border-radius: 0px;
+}
+
+.bio-content::-webkit-scrollbar-track {
+  background-color: black; /* Set the color of the scrollbar track */
 }
 
 h3 {
+  font-size: 13px;
   text-transform: uppercase;
+}
+
+h3:before {
+  content: '> ';
 }
 
 ul {
   margin-top: 0;
+  padding-inline-start: 0;
+}
+
+li {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li:before {
+  content: '*'; /* Set the ">" symbol as the content */
+  margin-right: 5px; /* Add some space between the symbol and the text */
 }

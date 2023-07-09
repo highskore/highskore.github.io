@@ -215,7 +215,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const isMobile = window.matchMedia('(max-width: 600px)').matches;
     const text = 'highskore';
     const font = getRandomFont(isMobile);
-    console.log('Hey dude, the font is: ' + font);
+    console.log('Hey! The title font is: ' + font);
     titleElement.innerHTML = ''; // Clear the title element
     if (isMobile) {
       const chunks = text.match(/.{1,3}/g); // Split text into chunks of 3 characters
