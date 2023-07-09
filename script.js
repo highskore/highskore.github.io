@@ -168,7 +168,7 @@ window.addEventListener('DOMContentLoaded', () => {
     'stellar',
     'nancyj-underlined',
     'graffiti',
-    'coinstack',
+    'coinstak',
     'shadow',
     'larry3d',
     'epic',
@@ -249,7 +249,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // Helper function to get the condensed browser information
 const getBrowserInfo = () => {
   const browser = navigator.userAgent;
-  const condensedBrowser = browser.split(' ').slice(0, 7).join(' '); // Extracting the first two words
+  const condensedBrowser = browser; // Extracting the first two words
   return condensedBrowser;
 };
 
