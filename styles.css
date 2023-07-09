@@ -29,7 +29,6 @@ a {
     flex-direction: column;
     margin-top: auto;
     margin-bottom: auto;
-    overflow: hidden;
   }
   .title pre {
     display: block;
@@ -144,6 +143,7 @@ li:before {
   margin-right: 5px; /* Add some space between the symbol and the text */
 }
 
+/* 
 .avatar {
   display: flex;
   width: auto;
@@ -151,4 +151,4 @@ li:before {
   margin-top: auto;
   margin-bottom: auto;
   font-size: 1vw;
-}
+} */
