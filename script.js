@@ -189,19 +189,22 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const renderTitle = (font, text) => {
-    const figletOptions = {
-      font: font,
-    };
+    return new Promise((resolve, reject) => {
+      const figletOptions = {
+        font: font,
+      };
 
-    figlet.text(text, figletOptions, (error, asciiText) => {
-      if (error) {
-        console.error(error);
-        return;
-      }
+      figlet.text(text, figletOptions, (error, asciiText) => {
+        if (error) {
+          reject(error);
+          return;
+        }
 
-      const preElement = document.createElement('pre');
-      preElement.textContent = asciiText;
-      titleElement.appendChild(preElement);
+        const preElement = document.createElement('pre');
+        preElement.textContent = asciiText;
+        titleElement.appendChild(preElement);
+        resolve();
+      });
     });
   };
 
