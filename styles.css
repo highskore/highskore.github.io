@@ -1,59 +1,88 @@
 body {
-  line-height: 1.6;
-  font-size: 12px;
-  padding: 0 10px;
-  margin: 60px auto;
-  max-width: 850px;
   background-color: black;
-  color: white;
-}
-
-.nes-balloon {
-  color: black;
-  border-image-repeat: unset;
-}
-
-.nes-container {
-  border-color: white;
-  padding: 1.5rem 0.5rem;
-}
-
-.nes-container.with-title > .title {
-  background-color: black;
-}
-
-.nes-text.is-primary {
-  color: white;
-}
-
-.nes-list.is-circle li::before {
-  color: white;
-}
-
-.super-big {
-  font-size: 2.5em;
-  margin-right: 10px;
-}
-
-.title-container {
+  color: rgb(43, 255, 0);
+  text-shadow: 0 0 1px rgb(43, 255, 0), 0 0 1px rgb(43, 255, 0), 0 0 1px rgb(43, 255, 0);
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center; /* Aligns items horizontally at the center */
+  justify-content: center; /* Aligns items vertically at the center */
+  font-family: 'Inconsolata', monospace;
+  height: 100vh;
+}
+
+.title {
+  margin-bottom: 40px; /* Adds space below the title */
+  display: flex;
+}
+
+.title pre {
+  font-size: 1vw;
+}
+
+a {
+  color: rgb(43, 255, 0);
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    flex-direction: column;
+  }
+  .title pre {
+    display: block;
+    margin: 0;
+    font-size: 5vw;
+  }
+}
+
+.info {
+  text-align: center;
+  font-size: 11px;
+  text-shadow: 0 0 1px rgb(43, 255, 0);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+button {
+  background-color: black;
+  color: rgb(43, 255, 0);
+  border: none;
+  padding: 10px 20px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 10px;
-  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  position: relative;
 }
 
-.topic {
-  margin-bottom: 2.5rem;
+.bio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  font-size: 13px;
+  text-shadow: 0 0 1px rgb(43, 255, 0);
 }
 
-.social-icons a {
-  text-decoration: none;
-}
-.social-icons a:hover {
-  text-decoration: none;
+h3 {
+  text-transform: uppercase;
 }
 
-.footer {
-  font-size: 0.7em;
+ul {
+  margin-top: 0;
 }
