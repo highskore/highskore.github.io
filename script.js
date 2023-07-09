@@ -159,7 +159,7 @@ window.addEventListener('DOMContentLoaded', () => {
     'fender',
     'contrast',
     'slide',
-    'smskeyboard',
+    'smkeyboard',
     'diamond',
     'pyramid',
     'thick',
