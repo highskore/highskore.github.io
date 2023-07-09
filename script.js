@@ -214,13 +214,17 @@ window.addEventListener('DOMContentLoaded', () => {
     if (isMobile) {
       const chunks = text.match(/.{1,3}/g); // Split text into chunks of 3 characters
 
-      for (const chunk of chunks) {
+      // Map each chunk to a promise returned by renderTitle
+      const renderPromises = chunks.map((chunk) => {
         const titleElementCopy = titleElement.cloneNode();
-        await renderTitle(font, chunk, titleElementCopy);
-      }
+        return renderTitle(font, chunk, titleElementCopy);
+      });
+
+      // Wait for all promises to resolve before continuing
+      await Promise.all(renderPromises);
     } else {
       const titleElementCopy = titleElement.cloneNode();
-      renderTitle(font, text, titleElementCopy);
+      await renderTitle(font, text, titleElementCopy);
     }
 
     const browserInfoElement = document.getElementById('browserInfo');
