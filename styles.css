@@ -143,3 +143,12 @@ li:before {
   content: '*'; /* Set the ">" symbol as the content */
   margin-right: 5px; /* Add some space between the symbol and the text */
 }
+
+.avatar {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 1vw;
+}
