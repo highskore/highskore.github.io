@@ -51,6 +51,10 @@ a {
   right: 0;
 }
 
+.socials {
+  margin-top: 10px;
+}
+
 button {
   background-color: black;
   color: rgb(43, 255, 0);
