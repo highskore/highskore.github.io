@@ -38,6 +38,7 @@ a {
   text-align: center;
   font-size: 11px;
   text-shadow: 0 0 1px rgb(43, 255, 0);
+  line-height: 1.5;
 }
 
 .buttons {
