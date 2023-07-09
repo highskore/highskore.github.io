@@ -235,7 +235,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const datetimeInfoElement = document.getElementById('datetimeInfo');
     datetimeInfoElement.textContent = getCurrentDateTime();
   };
-  window.addEventListener('resize', regenerateTitle);
 
   // Initial rendering
   regenerateTitle();
