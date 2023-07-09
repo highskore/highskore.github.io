@@ -237,13 +237,14 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   // Initial rendering
-  regenerateTitle();
-
-  const regenerateButton = document.getElementById('restart');
-
-  regenerateButton.addEventListener('click', () => {
+  try {
     regenerateTitle();
-  });
+    const regenerateButton = document.getElementById('restart');
+
+    regenerateButton.addEventListener('click', () => {
+      regenerateTitle();
+    });
+  } catch (error) {}
 });
 
 // Helper function to get the condensed browser information
