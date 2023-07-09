@@ -33,7 +33,7 @@ a {
   .title pre {
     display: block;
     margin: 0;
-    font-size: 5vw;
+    font-size: 120%;
   }
   .info {
     margin-top: 20px;
@@ -52,7 +52,6 @@ a {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 5px;
   top: 0;
   left: 0;
   right: 0;

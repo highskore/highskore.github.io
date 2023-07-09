@@ -163,8 +163,6 @@ window.addEventListener('DOMContentLoaded', () => {
     'diamond',
     'pyramid',
     'thick',
-    'mike',
-    'digital',
     'stellar',
     'nancyj-underlined',
     'graffiti',
@@ -208,7 +206,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const regenerateTitle = () => {
+  const regenerateTitle = async () => {
     const isMobile = window.matchMedia('(max-width: 600px)').matches;
     const text = 'highskore';
     const font = getRandomFont(isMobile);
@@ -219,7 +217,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       for (const chunk of chunks) {
         const titleElementCopy = titleElement.cloneNode();
-        renderTitle(font, chunk, titleElementCopy);
+        await renderTitle(font, chunk, titleElementCopy);
       }
     } else {
       const titleElementCopy = titleElement.cloneNode();
@@ -232,6 +230,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const datetimeInfoElement = document.getElementById('datetimeInfo');
     datetimeInfoElement.textContent = getCurrentDateTime();
   };
+
+  document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+      regenerateTitle();
+    }
+  });
 
   // Initial rendering
   try {
