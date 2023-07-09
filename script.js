@@ -168,7 +168,6 @@ window.addEventListener('DOMContentLoaded', () => {
     'graffiti',
     'coinstak',
     'shadow',
-    'larry3d',
     'epic',
     'speed',
     'rowancap',
@@ -238,7 +237,24 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // Initial rendering
+
   try {
+    const toggleModeButton = document.getElementById('toggleMode');
+    const bodyElement = document.body;
+    const preferredMode = localStorage.getItem('mode');
+
+    // Apply the preferred mode if it exists in local storage
+    if (preferredMode) {
+      bodyElement.classList.add(preferredMode);
+    }
+
+    // Toggle between light and dark mode
+    toggleModeButton.addEventListener('click', () => {
+      bodyElement.classList.toggle('light-mode');
+      const currentMode = bodyElement.classList.contains('light-mode') ? 'light-mode' : 'dark-mode';
+      localStorage.setItem('mode', currentMode);
+    });
+
     regenerateTitle();
     const regenerateButton = document.getElementById('restart');
 

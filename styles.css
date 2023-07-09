@@ -151,3 +151,54 @@ li:before {
   margin-bottom: auto;
   font-size: 1vw;
 } */
+
+/* Light Mode */
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.light-mode .title pre {
+  color: black;
+}
+
+.light-mode .bio-container {
+  border-color: black;
+}
+
+.light-mode .bio-container .bio-content {
+  text-shadow: none;
+  border-color: black;
+}
+
+.light-mode .bio-container .bio-content::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.light-mode .bio-container .bio-content::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.light-mode .info {
+  color: black;
+  text-shadow: none;
+}
+
+.light-mode a {
+  color: black;
+}
+
+.light-mode button {
+  background-color: white;
+  color: black;
+}
+
+.light-mode .title pre {
+  color: black;
+  text-shadow: none; /* Remove text shadow in light mode */
+}
+
+.light-mode .buttons button {
+  background-color: rgb(255, 255, 255); /* Update the button background color */
+  color: black;
+}
