@@ -224,23 +224,20 @@ const main = () => {
     }
   };
 
-  const renderTitle = (font, text) => {
-    return new Promise((resolve, reject) => {
-      const figletOptions = {
-        font: font,
-      };
+  const renderTitle = async (font, text) => {
+    const figletOptions = {
+      font: font,
+    };
 
-      figlet.text(text, figletOptions, (error, asciiText) => {
-        if (error) {
-          reject(error);
-          return;
-        }
+    await figlet.text(text, figletOptions, (error, asciiText) => {
+      if (error) {
+        reject(error);
+        return;
+      }
 
-        const preElement = document.createElement('pre');
-        preElement.textContent = asciiText;
-        titleElement.appendChild(preElement);
-        resolve();
-      });
+      const preElement = document.createElement('pre');
+      preElement.textContent = asciiText;
+      titleElement.appendChild(preElement);
     });
   };
 
