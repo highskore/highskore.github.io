@@ -71,7 +71,7 @@ a {
   border-color: rgb(43, 255, 0);
   text-shadow: 0 0 0.5px rgb(43, 255, 0);
   display: none;
-  animation: toasting 1.5s linear forwards;
+  animation: toasting 2s linear forwards;
 }
 
 .socials {
@@ -221,6 +221,9 @@ li:before {
 
 @keyframes toasting {
   0% {
+    opacity: 1;
+  }
+  50% {
     opacity: 1;
   }
   100% {
