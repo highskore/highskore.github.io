@@ -81,6 +81,8 @@ button {
 }
 
 .bio-container {
+  background-color: black;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   border: 1px solid rgb(43, 255, 0);
@@ -95,6 +97,8 @@ button {
 }
 
 .bio-content {
+  position: relative;
+  z-index: 2;
   padding: 20px;
   height: 100%;
   max-height: 500px;
@@ -211,6 +215,7 @@ li:before {
 
 .light-mode .bio-container {
   border-color: black;
+  background-color: white;
 }
 
 .light-mode .bio-container .bio-content {
