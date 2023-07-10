@@ -1,65 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="a blockchain developer's portfolio" />
-        <title>highskore</title>
-        <link rel="icon" type="image/x-icon" href="favicon.ico?" />
-        <link rel="stylesheet" href="styles.css" />
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
-        />
-    </head>
-    <body>
-        <div class="matrix-effect">
-            <!-- Generate multiple spans using JavaScript -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="a blockchain developer's portfolio" />
+    <title>highskore</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico?" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" />
+  </head>
+  <body>
+    <div class="matrix-effect">
+      <!-- Generate multiple spans using JavaScript -->
+    </div>
+    <div class="container">
+      <div class="title"></div>
+      <div class="info">
+        <button id="toggleMode" alt="toggle-switch">*</button>
+        <button id="shareButton" alt="share-theme">#</button>
+        <div id="copiedMessage" class="cloudMessage cloud-message">Link copied!</div>
+        <div class="world">world: <span id="datetimeInfo"></span></div>
+        <div class="you">you: <span id="browserInfo"></span></div>
+        <div class="me">
+          me: a blockchain dev currently building smart contracts and backend at
+          <a href="https://find.xyz/" target="_blank">find</a> and <a href="http://zeedz.io" target="_blank">zeedz</a>.
         </div>
-        <div class="container">
-            <div class="title"></div>
-            <div class="info">
-                <button id="toggleMode" alt="toggle-switch">*</button>
-                <button id="shareButton" alt="share-theme">#</button>
-                <div id="copiedMessage" class="cloudMessage cloud-message">
-                    Link copied!
-                </div>
-                <div class="world">world: <span id="datetimeInfo"></span></div>
-                <div class="you">you: <span id="browserInfo"></span></div>
-                <div class="me">
-                    me: a blockchain dev currently building smart contracts and
-                    backend at
-                    <a href="https://find.xyz/" target="_blank">find</a> and
-                    <a href="http://zeedz.io" target="_blank">zeedz</a>.
-                </div>
-                <div class="socials">
-                    <
-                    <a href="http://twitter.com/0xhighskore" target="_blank"
-                        >Twitter</a
-                    >
-                    |
-                    <a href="http://github.com/highskore" target="_blank"
-                        >GitHub</a
-                    >
-                    |
-                    <a href="http://medium.com/@lu_ka_ra_ch_ki" target="_blank"
-                        >Medium</a
-                    >
-                    |
-                    <a href="mailto:me@highskore.com" target="_blank">Email</a>
-                    >
-                </div>
-            </div>
-            <div class="buttons">
-                <button id="restart">RESTART</button>
+        <div class="socials">
+          <
+          <a href="http://twitter.com/0xhighskore" target="_blank">Twitter</a>
+          |
+          <a href="http://github.com/highskore" target="_blank">GitHub</a>
+          |
+          <a href="http://medium.com/@lu_ka_ra_ch_ki" target="_blank">Medium</a>
+          |
+          <a href="mailto:me@highskore.com" target="_blank">Email</a>
+          >
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="restart">RESTART</button>
 
-                <button id="bio" onclick="window.location.href='bio.html'">
-                    BIO
-                </button>
-            </div>
-            <script src="scripts/figlet.js" defer></script>
-            <script src="scripts/main.js" defer></script>
-            <script src="scripts/matrix.js"></script>
-        </div>
-    </body>
+        <button id="bio" onclick="window.location.href='bio.html'">BIO</button>
+      </div>
+      <script src="scripts/figlet.js" defer></script>
+      <script src="scripts/main.js" defer></script>
+      <script src="scripts/matrix.js"></script>
+    </div>
+  </body>
 </html>
