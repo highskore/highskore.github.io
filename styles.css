@@ -58,9 +58,9 @@ a {
 }
 .toast {
   position: fixed;
-  top: 0;
-  padding: 2px;
-  margin-top: 5px;
+  padding: 4px;
+  width: auto;
+  margin-top: 0px;
   font-size: 10px;
   line-height: 1.5;
   text-align: center;
