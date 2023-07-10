@@ -67,11 +67,19 @@ a {
   color: rgb(43, 255, 0);
   width: 100%;
   background-color: black;
-  border-bottom: 0.5px solid;
-  border-color: rgb(43, 255, 0);
   text-shadow: 0 0 0.5px rgb(43, 255, 0);
   display: none;
   animation: toasting 2s linear forwards;
+}
+
+.toast::before {
+  content: '[';
+  padding: 2px;
+}
+
+.toast::after {
+  content: ']';
+  padding: 2px;
 }
 
 .socials {
@@ -305,7 +313,6 @@ li:before {
 
 .light-mode .toast {
   color: rgb(0, 0, 0);
-  border-color: rgb(0, 0, 0);
   width: 100%;
   background-color: rgb(255, 255, 255);
   text-shadow: none;
