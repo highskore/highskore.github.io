@@ -191,6 +191,7 @@ li:before {
 .matrix-effect span {
   position: absolute;
   display: inline-block;
+  pointer-events: none;
   font-family: 'Inconsolata', monospace;
   font-size: 8px;
   color: rgb(43, 255, 0);
