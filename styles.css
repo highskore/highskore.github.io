@@ -70,6 +70,16 @@ button {
   cursor: pointer;
 }
 
+button::before {
+  content: '[';
+  padding: 2px;
+}
+
+button::after {
+  content: ']';
+  padding: 2px;
+}
+
 .container {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,15 @@
+let isFirstLoad;
+
 window.addEventListener('DOMContentLoaded', () => {
-  const titleElement = document.querySelector('.title');
+  let isFirstLoad = true;
+  main();
+});
+
+const main = () => {
+  /*//////////////////////////////////////////////////////////////
+                                 FONTS
+//////////////////////////////////////////////////////////////*/
+
   const fonts = [
     '3-d',
     '3x5',
@@ -176,12 +186,40 @@ window.addEventListener('DOMContentLoaded', () => {
     'smisome1',
   ];
 
-  let isFirstLoad = true;
+  /*//////////////////////////////////////////////////////////////
+                                 CONST
+//////////////////////////////////////////////////////////////*/
+
+  const titleElement = document.querySelector('.title');
+
+  const isMobile = window.matchMedia('(max-width: 600px)').matches;
+
+  /*//////////////////////////////////////////////////////////////
+                                 VARS
+//////////////////////////////////////////////////////////////*/
+
+  let currentFont = 'smisome1';
+
+  /*//////////////////////////////////////////////////////////////
+                                 FUNCTIONS
+//////////////////////////////////////////////////////////////*/
+
+  const getQueryParam = (name) => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get(name);
+  };
 
   const getRandomFont = (isMobile) => {
+    let font = getQueryParam('font');
+
+    if (font && (isMobile ? mobile.includes(font) : fonts.includes(font))) {
+      return font;
+    }
+
     if (isFirstLoad) {
       isFirstLoad = false;
-      return 'smisome1';
+      return currentFont;
     } else {
       const randomIndex = Math.floor(Math.random() * (isMobile ? mobile.length : fonts.length));
       return isMobile ? mobile[randomIndex] : fonts[randomIndex];
@@ -209,11 +247,14 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const regenerateTitle = async () => {
-    const isMobile = window.matchMedia('(max-width: 600px)').matches;
     const text = 'highskore';
-    const font = getRandomFont(isMobile);
+    currentFont = getRandomFont(isMobile);
+    // Clear the query parameters from the URL
+    history.replaceState(null, null, window.location.pathname);
+    const font = currentFont;
     console.log('Hey! The title font is: ' + font);
     titleElement.innerHTML = ''; // Clear the title element
+
     if (isMobile) {
       const chunks = text.match(/.{1,3}/g); // Split text into chunks of 3 characters
 
@@ -237,22 +278,51 @@ window.addEventListener('DOMContentLoaded', () => {
     datetimeInfoElement.textContent = getCurrentDateTime();
   };
 
+  // Helper function to get the condensed browser information
+  const getBrowserInfo = () => {
+    const browser = navigator.userAgent;
+    const condensedBrowser = browser; // Extracting the first two words
+    return condensedBrowser;
+  };
+
+  // Helper function to get the condensed current date and time
+  const getCurrentDateTime = () => {
+    const now = new Date();
+    const options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    const condensedDateTime = now.toLocaleString('en-US', options);
+    return condensedDateTime;
+  };
+
+  /*//////////////////////////////////////////////////////////////
+                            LISTENERS
+//////////////////////////////////////////////////////////////*/
+
   document.addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
       regenerateTitle();
     }
   });
 
-  // Initial rendering
+  // BUTTONS
 
   try {
+    // LIGHT AND DARK
     const toggleModeButton = document.getElementById('toggleMode');
     const bodyElement = document.body;
-    const preferredMode = localStorage.getItem('mode');
 
-    // Apply the preferred mode if it exists in local storage
-    if (preferredMode) {
-      bodyElement.classList.add(preferredMode);
+    const preferredMode = localStorage.getItem('mode');
+    const queryMode = getQueryParam('mode');
+
+    // Apply the query mode if it exists, otherwise apply the preferred mode from local storage
+    const modeToApply =
+      queryMode && queryMode.includes('dark')
+        ? 'dark-mode'
+        : queryMode && queryMode.includes('light')
+        ? 'light-mode'
+        : preferredMode;
+
+    if (modeToApply) {
+      bodyElement.classList.add(modeToApply);
     }
 
     // Toggle between light and dark mode
@@ -262,26 +332,37 @@ window.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('mode', currentMode);
     });
 
-    regenerateTitle();
+    // RESTART
+
     const regenerateButton = document.getElementById('restart');
 
     regenerateButton.addEventListener('click', () => {
       regenerateTitle();
     });
+
+    // SHARE
+
+    const shareButton = document.getElementById('shareButton');
+
+    shareButton.addEventListener('click', () => {
+      const currentMode = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+
+      // Create the share URL with font and mode parameters
+      const shareURL = `${window.location.origin}?font=${currentFont}&mode=${currentMode}`;
+
+      // Copy the share URL to the clipboard
+      const tempInput = document.createElement('input');
+      tempInput.value = shareURL;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      console.log('URL copied to clipboard:', shareURL);
+    });
+
+    // Render
+
+    regenerateTitle();
   } catch (error) {}
-});
-
-// Helper function to get the condensed browser information
-const getBrowserInfo = () => {
-  const browser = navigator.userAgent;
-  const condensedBrowser = browser; // Extracting the first two words
-  return condensedBrowser;
-};
-
-// Helper function to get the condensed current date and time
-const getCurrentDateTime = () => {
-  const now = new Date();
-  const options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-  const condensedDateTime = now.toLocaleString('en-US', options);
-  return condensedDateTime;
 };

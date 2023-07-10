@@ -17,6 +17,7 @@
       <div class="title"></div>
       <div class="info">
         <button id="toggleMode">*</button>
+        <button id="shareButton">#</button>
         <div class="world">world: <span id="datetimeInfo"></span></div>
         <div class="you">you: <span id="browserInfo"></span></div>
         <div class="me">
@@ -31,12 +32,12 @@
         </div>
       </div>
       <div class="buttons">
-        <button id="restart" class="restart-button">[ RESTART ]</button>
-        <button id="bio" class="bio-button" onclick="window.location.href='bio'">[ BIO ]</button>
+        <button id="restart">RESTART</button>
+        <button id="bio" onclick="window.location.href='bio'">BIO</button>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/figlet" defer></script>
-      <script src="script.js" defer></script>
-      <script src="matrix.js"></script>
+      <script src="scripts/figlet.js" defer></script>
+      <script src="scripts/main.js" defer></script>
+      <script src="scripts/matrix.js"></script>
     </div>
   </body>
 </html>
