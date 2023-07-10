@@ -11,8 +11,6 @@ try {
   regenerateButton.addEventListener('click', () => {
     // Generate a random number between 1 and 100
     const randomChance = Math.floor(Math.random() * 50) + 1;
-
-    console.log(randomChance);
     // Clear any existing letters
     while (matrixContainer.firstChild) {
       matrixContainer.removeChild(matrixContainer.firstChild);
