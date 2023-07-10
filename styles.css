@@ -56,9 +56,24 @@ a {
   left: 0;
   right: 0;
 }
-.cloudMessage {
+.toast {
+  position: fixed;
+  top: 0;
+  padding: 2px;
+  margin-top: 0;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+  color: rgb(43, 255, 0);
+  width: 100%;
+  background-color: black;
+  border-bottom: 0.5px solid;
+  border-color: rgb(43, 255, 0);
+  text-shadow: 0 0 0.5px rgb(43, 255, 0);
   display: none;
+  animation: toasting 1.5s linear forwards;
 }
+
 .socials {
   margin-top: 10px;
 }
@@ -204,6 +219,15 @@ li:before {
   }
 }
 
+@keyframes toasting {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .matrix-effect span {
   position: absolute;
   display: inline-block;
@@ -273,5 +297,13 @@ li:before {
 
 .light-mode .matrix-effect span {
   color: rgb(122, 122, 122);
+  text-shadow: none;
+}
+
+.light-mode .toast {
+  color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
+  width: 100%;
+  background-color: rgb(255, 255, 255);
   text-shadow: none;
 }
