@@ -341,6 +341,14 @@ const main = () => {
 
     shareButton.addEventListener('click', () => {
       const currentMode = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+      const copiedMessage = document.getElementById('copiedMessage');
+      copiedMessage.style.display = 'block';
+
+      setTimeout(function() {
+        copiedMessage.style.display = 'none';
+      }, 2000)
+      
+     
 
       // Create the share URL with font and mode parameters
       const shareURL = `${window.location.origin}?font=${currentFont}&mode=${currentMode}`;

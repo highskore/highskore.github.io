@@ -56,7 +56,9 @@ a {
   left: 0;
   right: 0;
 }
-
+.cloudMessage {
+  display: none;
+}
 .socials {
   margin-top: 10px;
 }
