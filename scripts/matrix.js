@@ -6,11 +6,11 @@ window.addEventListener('DOMContentLoaded', () => {
 const matrixContainer = document.querySelector('.matrix-effect');
 
 try {
-  const regenerateButton = document.getElementById('restart');
+  const regenerateButton = document.getElementById('restartButton');
 
   regenerateButton.addEventListener('click', () => {
-    // Generate a random number between 1 and 100
-    const randomChance = Math.floor(Math.random() * 50) + 1;
+    // Generate a random number between 1 and 69
+    const randomChance = Math.floor(Math.random() * 69) + 1;
     // Clear any existing letters
     while (matrixContainer.firstChild) {
       matrixContainer.removeChild(matrixContainer.firstChild);
