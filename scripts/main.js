@@ -1,7 +1,7 @@
 let isFirstLoad;
 
 window.addEventListener('DOMContentLoaded', () => {
-  let isFirstLoad = true;
+  isFirstLoad = true;
   main();
 });
 
@@ -144,7 +144,6 @@ const main = () => {
     'twopoint',
     'univers',
     'usaflag',
-    'wavy',
     'weird',
   ];
 
@@ -180,7 +179,6 @@ const main = () => {
     'speed',
     'rowancap',
     'trek',
-    'wavy',
     'smisome1',
   ];
 
