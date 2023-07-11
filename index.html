@@ -1,49 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="a blockchain developer's portfolio" />
     <title>highskore</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico?" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" />
   </head>
   <body>
-    <div class="matrix-effect">
-      <!-- Generate multiple spans using JavaScript -->
-    </div>
+    <!-- Matrix effect -->
+    <div class="matrix-effect"></div>
+
+    <!-- Main container -->
     <div class="container">
+      <!-- Toast message -->
       <div id="toast" class="toast">title &amp; theme combination copied to clipboard</div>
+
+      <!-- Title element -->
       <div class="title"></div>
+
+      <!-- Information section -->
       <div class="info">
-        <button id="toggleMode">&#42;</button>
-        <button id="shareButton">&#35;</button>
+        <!-- Toggle mode button -->
+        <button id="toggleMode" title="Toggle lighting mode">&#42;</button>
+
+        <!-- Share button -->
+        <button id="shareButton" title="Share this font/theme combination">&#35;</button>
+
+        <!-- World information -->
         <div class="world">world: <span id="datetimeInfo"></span></div>
+
+        <!-- User information -->
         <div class="you">you: <span id="browserInfo"></span></div>
+
+        <!-- Developer information -->
         <div class="me">
           me: a blockchain dev currently building smart contracts and backend at
           <a href="https://find.xyz/" target="_blank">find</a> and <a href="http://zeedz.io" target="_blank">zeedz</a>.
         </div>
+
+        <!-- Social links -->
         <div class="socials">
           &lt;
-          <a href="http://twitter.com/0xhighskore" target="_blank">Twitter</a>
+          <a href="http://twitter.com/0xhighskore" target="_blank" tittle="http://twitter/0xhighskore">Twitter</a>
           &#124;
-          <a href="http://github.com/highskore" target="_blank">GitHub</a>
+          <a href="http://github.com/highskore" target="_blank" title="http://github.com/highskore">GitHub</a>
           &#124;
-          <a href="http://medium.com/@lu_ka_ra_ch_ki" target="_blank">Medium</a>
+          <a href="http://medium.com/@lu_ka_ra_ch_ki" target="_blank" title="http://medium.com/@lu_ka_ra_ch_ki"
+            >Medium</a
+          >
           &#124;
-          <a href="mailto:me@highskore.com" target="_blank">Email</a>
+          <a href="mailto:me@highskore.com" target="_blank" title="me@highskore.com">Email</a>
           &gt;
         </div>
       </div>
-      <div class="buttons">
-        <button id="restart">RESTART</button>
 
-        <button id="bio" onclick="window.location.href='bio.html'">BIO</button>
+      <!-- Buttons section -->
+      <div class="buttons">
+        <!-- Restart button -->
+        <button id="restartButton" title="New game">RESTART</button>
+
+        <!-- Bio button -->
+        <button id="bio" onclick="window.location.href='bio.html'" title="About me">BIO</button>
       </div>
+
+      <!-- JavaScript files -->
       <script src="scripts/figlet.js" defer></script>
-      <script src="scripts/main.js" defer></script>
+      <script src="scripts/main.js" type="module"></script>
       <script src="scripts/matrix.js"></script>
     </div>
   </body>
