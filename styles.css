@@ -7,7 +7,7 @@ body {
   align-items: center; /* Aligns items horizontally at the center */
   justify-content: center; /* Aligns items vertically at the center */
   font-family: 'Inconsolata', monospace;
-  height: 100vh;
+  height: 100svh;
   margin: 0;
 }
 
