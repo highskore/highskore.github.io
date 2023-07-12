@@ -11,66 +11,70 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" />
   </head>
   <body>
-    <!-- Matrix effect -->
-    <div class="matrix-effect"></div>
+    <!-- Screen -->
+    <div class="screen">
+      <!-- Main container -->
+      <div class="container">
+        <!-- Matrix effect -->
+        <div class="matrix-effect"></div>
+        <!-- Toast message -->
+        <div id="toast" class="toast">title &amp; theme combination copied to clipboard</div>
 
-    <!-- Main container -->
-    <div class="container">
-      <!-- Toast message -->
-      <div id="toast" class="toast">title &amp; theme combination copied to clipboard</div>
+        <!-- Title element -->
+        <div class="title"></div>
 
-      <!-- Title element -->
-      <div class="title"></div>
+        <!-- Content element -->
+        <div class="content">
+          <!-- Information section -->
+          <div class="info">
+            <!-- Toggle mode button -->
+            <button id="toggleMode" title="Toggle lighting mode">&#42;</button>
 
-      <!-- Information section -->
-      <div class="info">
-        <!-- Toggle mode button -->
-        <button id="toggleMode" title="Toggle lighting mode">&#42;</button>
+            <!-- Share button -->
+            <button id="shareButton" title="Share this font/theme combination">&#35;</button>
 
-        <!-- Share button -->
-        <button id="shareButton" title="Share this font/theme combination">&#35;</button>
+            <!-- World information -->
+            <div class="world">world: <span id="datetimeInfo"></span></div>
 
-        <!-- World information -->
-        <div class="world">world: <span id="datetimeInfo"></span></div>
+            <!-- User information -->
+            <div class="you">you: <span id="browserInfo"></span></div>
 
-        <!-- User information -->
-        <div class="you">you: <span id="browserInfo"></span></div>
+            <!-- Developer information -->
+            <div class="me">
+              me: a blockchain dev currently building smart contracts and backend at
+              <a href="https://find.xyz/" target="_blank">find</a> and
+              <a href="http://zeedz.io" target="_blank">zeedz</a>.
+            </div>
 
-        <!-- Developer information -->
-        <div class="me">
-          me: a blockchain dev currently building smart contracts and backend at
-          <a href="https://find.xyz/" target="_blank">find</a> and <a href="http://zeedz.io" target="_blank">zeedz</a>.
-        </div>
+            <!-- Social links -->
+            <div class="socials">
+              &lt;
+              <a href="http://twitter.com/0xhighskore" target="_blank" tittle="http://twitter/0xhighskore">Twitter</a>
+              &#124;
+              <a href="http://github.com/highskore" target="_blank" title="http://github.com/highskore">GitHub</a>
+              &#124;
+              <a href="http://medium.com/@lu_ka_ra_ch_ki" target="_blank" title="http://medium.com/@lu_ka_ra_ch_ki"
+                >Medium</a
+              >
+              &#124;
+              <a href="mailto:me@highskore.com" target="_blank" title="me@highskore.com">Email</a>
+              &gt;
+            </div>
+          </div>
+          <!-- Buttons section -->
+          <div class="buttons">
+            <!-- Restart button -->
+            <button id="restartButton" title="New game">RESTART</button>
 
-        <!-- Social links -->
-        <div class="socials">
-          &lt;
-          <a href="http://twitter.com/0xhighskore" target="_blank" tittle="http://twitter/0xhighskore">Twitter</a>
-          &#124;
-          <a href="http://github.com/highskore" target="_blank" title="http://github.com/highskore">GitHub</a>
-          &#124;
-          <a href="http://medium.com/@lu_ka_ra_ch_ki" target="_blank" title="http://medium.com/@lu_ka_ra_ch_ki"
-            >Medium</a
-          >
-          &#124;
-          <a href="mailto:me@highskore.com" target="_blank" title="me@highskore.com">Email</a>
-          &gt;
+            <!-- Bio button -->
+            <button id="bio" onclick="window.location.href='bio.html'" title="About me">BIO</button>
+          </div>
         </div>
       </div>
-
-      <!-- Buttons section -->
-      <div class="buttons">
-        <!-- Restart button -->
-        <button id="restartButton" title="New game">RESTART</button>
-
-        <!-- Bio button -->
-        <button id="bio" onclick="window.location.href='bio.html'" title="About me">BIO</button>
-      </div>
-
-      <!-- JavaScript files -->
-      <script src="scripts/figlet.js" defer></script>
-      <script src="scripts/main.js" type="module"></script>
-      <script src="scripts/matrix.js"></script>
     </div>
+    <!-- JavaScript files -->
+    <script src="scripts/figlet.js" defer></script>
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/matrix.js"></script>
   </body>
 </html>
