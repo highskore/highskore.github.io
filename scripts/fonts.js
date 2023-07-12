@@ -224,7 +224,6 @@ export const mobile = [
   'thorned',
   'threepoint',
   'ticks',
-  'tiles',
 ];
 
 export const getRandomFont = (isMobile, isFirstLoad, currentFont) => {
