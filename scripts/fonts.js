@@ -138,7 +138,6 @@ export const fonts = [
   'starstrips',
   'starwars',
   'stellar',
-  'stforek',
   'stop',
   'straight',
   'sub-zero',
