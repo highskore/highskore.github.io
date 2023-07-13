@@ -406,13 +406,14 @@ li:before {
   .title {
     flex-direction: column;
     margin-top: auto;
+    align-items: center;
     margin-bottom: auto;
   }
 
   .title pre {
     display: block;
     margin: 0;
-    font-size: 80%;
+    font-size: 90%;
   }
 
   .info {
