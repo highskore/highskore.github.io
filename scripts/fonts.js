@@ -137,7 +137,6 @@ export const fonts = [
   'straight',
   'sub-zero',
   'swampland',
-  'sweet',
   'THIS',
   'tanja',
   'tengwar',
