@@ -171,7 +171,6 @@ export const mobile = [
   'trek',
   'smisome1',
   '3-D',
-  '3D-ASCII',
   '3d',
   '3x5',
   '4Max',

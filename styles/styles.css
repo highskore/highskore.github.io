@@ -261,7 +261,7 @@ li:before {
 }
 
 .container.on {
-  animation: turn-off 1s linear 0s, turn-on 1s linear 2s;
+  animation: turn-off 0.5s linear 0s, turn-on 0.3s linear 0.7s;
   animation-fill-mode: forwards;
 }
 
@@ -289,19 +289,19 @@ li:before {
     filter: brightness(30);
     opacity: 0.2;
   }
-  3.5% {
+  35.5% {
     transform: scale(1, 0.8) translate3d(0, 100%, 0);
   }
-  3.6% {
+  53.6% {
     transform: scale(1, 0.8) translate3d(0, -100%, 0);
     opacity: 0.5;
   }
-  9% {
+  79% {
     transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
     filter: brightness(5);
     opacity: 0;
   }
-  51% {
+  91% {
     transform: scale(1, 1) translate3d(0, 0, 0);
     filter: contrast(0) brightness(0);
     opacity: 0;

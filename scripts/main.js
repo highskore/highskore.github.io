@@ -75,7 +75,7 @@ async function restartAnimation(screenElement, titleElement, isMobile, currentFo
   screenElement.classList.add('on');
 
   // Regenerate the title after the screen turns off
-  await sleep(1000);
+  await sleep(500);
   const newFont = await regenerateTitle(titleElement, isMobile, false, currentFont);
 
   // Remove the 'on' class after both animations finish
