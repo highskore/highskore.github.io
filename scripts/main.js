@@ -1,10 +1,10 @@
 import { init } from './init.js';
 import { regenerateTitle } from './render.js';
-import { getCurrentMode } from './mode.js';
+import { generateDistinctRandomColor, generateRandomColor, getComplementaryColor } from './colors.js';
 
 // defaults
 
-let currentFont = 'smisome1';
+let currentFont = localStorage.getItem('font') || 'smisome1';
 let isMobile = window.matchMedia('(max-width: 600px)').matches;
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // elements
 
-  const bodyElement = document.body;
   const toggleModeButton = document.getElementById('toggleMode');
   const regenerateButton = document.getElementById('restartButton');
   const shareButton = document.getElementById('shareButton');
@@ -24,6 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', async (event) => {
     if (event.code === 'Space') {
       currentFont = await restartAnimation(screenElement, titleElement, isMobile, currentFont);
+      localStorage.setItem('font', currentFont);
     }
   });
 
@@ -36,7 +36,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // share
 
   shareButton.addEventListener('click', () => {
-    const currentMode = getCurrentMode();
+    const root = document.documentElement;
+    const mainColor = getComputedStyle(root).getPropertyValue('--main-color').trim();
+    const accentColor = getComputedStyle(root).getPropertyValue('--accent-color').trim();
     const toast = document.getElementById('toast');
     toast.style.display = 'block';
 
@@ -44,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
       toast.style.display = 'none';
     }, 2000);
 
-    const shareURL = `${window.location.origin}?font=${currentFont}&mode=${currentMode}`;
+    const shareURL = `${window.location.origin}?font=${currentFont}&main=${mainColor}&accent=${accentColor}`;
 
     const tempInput = document.createElement('input');
     tempInput.value = shareURL;
@@ -59,20 +61,42 @@ window.addEventListener('DOMContentLoaded', () => {
   // mode
 
   toggleModeButton.addEventListener('click', () => {
-    bodyElement.classList.toggle('light-mode');
-    const currentMode = bodyElement.classList.contains('light-mode') ? 'light-mode' : 'dark-mode';
-    localStorage.setItem('mode', currentMode);
+    // Complement colors when mode changes
+    const root = document.documentElement;
+    let mainColor = getComputedStyle(root).getPropertyValue('--main-color').trim();
+    let accentColor = getComputedStyle(root).getPropertyValue('--accent-color').trim();
+
+    let complementMainColor = getComplementaryColor(mainColor);
+    let complementAccentColor = getComplementaryColor(accentColor);
+
+    // Assign the complementary colors to the original CSS variables
+    root.style.setProperty('--main-color', complementMainColor);
+    root.style.setProperty('--accent-color', complementAccentColor);
+
+    // Store complementary colors in local storage
+    localStorage.setItem('mainColor', complementMainColor);
+    localStorage.setItem('accentColor', complementAccentColor);
   });
 
   regenerateTitle(titleElement, isMobile, true, currentFont);
 });
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 async function restartAnimation(screenElement, titleElement, isMobile, currentFont) {
   const newFont = await regenerateTitle(titleElement, isMobile, false, currentFont);
+
+  // Generate two distinct random colors
+  let randomColor1 = generateRandomColor();
+  let randomColor2 = generateDistinctRandomColor(randomColor1); // Generates a color distinct from randomColor1
+
+  // Apply the random colors as CSS variables
+  const root = document.documentElement;
+  root.style.setProperty('--main-color', randomColor1);
+  root.style.setProperty('--accent-color', randomColor2);
+
+  // Store random colors and font in local storage
+  localStorage.setItem('mainColor', randomColor1);
+  localStorage.setItem('accentColor', randomColor2);
+  localStorage.setItem('font', currentFont);
 
   return newFont;
 }
