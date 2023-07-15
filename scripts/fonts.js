@@ -123,7 +123,6 @@ export const fonts = [
   'twopoint',
   'univers',
   'weird',
-  '3-D',
   '3D Diagonal',
   '3D-ASCII',
   '3d',
