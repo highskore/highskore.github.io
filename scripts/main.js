@@ -29,7 +29,6 @@ window.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', async (event) => {
     if (event.code === 'Space') {
       currentFont = await restartAnimation(screenElement, titleElement, isMobile, currentFont);
-      localStorage.setItem('font', currentFont);
     }
   });
 
@@ -87,7 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
   regenerateTitle(titleElement, isMobile, true, currentFont);
 });
 
-async function restartAnimation(screenElement, titleElement, isMobile, currentFont) {
+async function restartAnimation(titleElement, isMobile, currentFont) {
   const newFont = await regenerateTitle(titleElement, isMobile, false, currentFont);
 
   // Generate two distinct random colors
@@ -102,7 +101,7 @@ async function restartAnimation(screenElement, titleElement, isMobile, currentFo
   // Store random colors and font in local storage
   localStorage.setItem('mainColor', randomColor1);
   localStorage.setItem('accentColor', randomColor2);
-  localStorage.setItem('font', currentFont);
+  localStorage.setItem('font', newFont);
 
   if (Math.floor(Math.random() * 69) === 1) {
     applyRandomColorToEachCharacter(titleElement);
