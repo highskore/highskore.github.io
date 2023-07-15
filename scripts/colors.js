@@ -76,3 +76,81 @@ function rgbToHex(r, g, b) {
 
   return '#' + r + g + b;
 }
+
+export function applyRandomColorToEachCharacter(element) {
+  let preElements = element.querySelectorAll('pre'); // get all the pre blocks
+
+  preElements.forEach((preElement) => {
+    let asciiArt = preElement.textContent; // get ASCII art from pre tag
+    let coloredAsciiArt = '';
+
+    // iterate through each character in the ASCII art
+    for (let char of asciiArt) {
+      if (char !== ' ') {
+        // if the character is not a space
+        let randomColor = generateRandomColor();
+        // wrap the character in a span with a random color
+        coloredAsciiArt += `<span style="color:${randomColor}">${char}</span>`;
+      } else {
+        // if the character is a space, just add it to the string
+        coloredAsciiArt += char;
+      }
+    }
+
+    preElement.innerHTML = coloredAsciiArt; // replace the ASCII art with the colored ASCII art
+  });
+}
+
+function interpolateColor(color1, color2, factor) {
+  const r = color1.r + (color2.r - color1.r) * factor;
+  const g = color1.g + (color2.g - color1.g) * factor;
+  const b = color1.b + (color2.b - color1.b) * factor;
+
+  return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
+}
+
+function isLightColor(color) {
+  const rgb = hexToRgb(color);
+  // This is a common formula for calculating perceived brightness
+  const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+  return brightness > 128; // This is a common threshold
+}
+
+export function applyGradientToCharacters(element, startColor) {
+  let preElements = element.querySelectorAll('pre'); // get all the pre blocks
+
+  // Decide on end color based on brightness of the start color
+  let endColor = isLightColor(startColor) ? '#000000' : '#ffffff';
+  const rgbStart = hexToRgb(startColor);
+  const rgbEnd = hexToRgb(endColor);
+  const step = 1 / element.textContent.length;
+
+  preElements.forEach((preElement) => {
+    let asciiArt = preElement.textContent; // get ASCII art from pre tag
+    let coloredAsciiArt = '';
+
+    // iterate through each character in the ASCII art
+    for (let i = 0; i < asciiArt.length; i++) {
+      const char = asciiArt[i];
+      if (char !== ' ') {
+        // if the character is not a space
+        let r = Math.round(lerp(rgbStart.r, rgbEnd.r, i * step));
+        let g = Math.round(lerp(rgbStart.g, rgbEnd.g, i * step));
+        let b = Math.round(lerp(rgbStart.b, rgbEnd.b, i * step));
+        let color = rgbToHex(r, g, b);
+        // wrap the character in a span with a color based on the hue
+        coloredAsciiArt += `<span style="color:${color}">${char}</span>`;
+      } else {
+        // if the character is a space, just add it to the string
+        coloredAsciiArt += char;
+      }
+    }
+
+    preElement.innerHTML = coloredAsciiArt; // replace the ASCII art with the colored ASCII art
+  });
+}
+
+// Linear interpolation function
+function lerp(v0, v1, t) {
+  return v0 + t * (v1 - v0);
+}

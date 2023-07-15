@@ -1,6 +1,11 @@
 import { init } from './init.js';
 import { regenerateTitle } from './render.js';
-import { generateDistinctRandomColor, generateRandomColor, getComplementaryColor } from './colors.js';
+import {
+  generateDistinctRandomColor,
+  generateRandomColor,
+  getComplementaryColor,
+  applyRandomColorToEachCharacter,
+} from './colors.js';
 
 // defaults
 
@@ -98,6 +103,10 @@ async function restartAnimation(screenElement, titleElement, isMobile, currentFo
   localStorage.setItem('mainColor', randomColor1);
   localStorage.setItem('accentColor', randomColor2);
   localStorage.setItem('font', currentFont);
+
+  if (Math.floor(Math.random() * 69) === 1) {
+    applyRandomColorToEachCharacter(titleElement);
+  }
 
   return newFont;
 }
