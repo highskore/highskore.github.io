@@ -146,7 +146,6 @@ export const fonts = [
   'thorned',
   'threepoint',
   'ticks',
-  'tiles',
 ];
 
 export const mobile = [
