@@ -72,15 +72,7 @@ function sleep(ms) {
 }
 
 async function restartAnimation(screenElement, titleElement, isMobile, currentFont) {
-  screenElement.classList.add('on');
-
-  // Regenerate the title after the screen turns off
-  await sleep(500);
   const newFont = await regenerateTitle(titleElement, isMobile, false, currentFont);
-
-  // Remove the 'on' class after both animations finish
-  await sleep(2000); // wait additional 2000ms to sum up to 3000ms
-  screenElement.classList.remove('on');
 
   return newFont;
 }
