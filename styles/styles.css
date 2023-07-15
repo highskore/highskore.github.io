@@ -12,6 +12,7 @@ body {
   justify-content: center;
   font-family: 'Inconsolata', monospace;
   height: 100dvh;
+  min-height: 100%;
   margin: 0;
 }
 
