@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // elements
 
+  const root = document.documentElement;
   const toggleModeButton = document.getElementById('toggleMode');
   const regenerateButton = document.getElementById('restartButton');
   const shareButton = document.getElementById('shareButton');
@@ -36,7 +37,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // share
 
   shareButton.addEventListener('click', () => {
-    const root = document.documentElement;
     const mainColor = getComputedStyle(root).getPropertyValue('--main-color').trim();
     const accentColor = getComputedStyle(root).getPropertyValue('--accent-color').trim();
     const toast = document.getElementById('toast');
@@ -46,7 +46,9 @@ window.addEventListener('DOMContentLoaded', () => {
       toast.style.display = 'none';
     }, 2000);
 
-    const shareURL = `${window.location.origin}?font=${currentFont}&main=${mainColor}&accent=${accentColor}`;
+    const shareURL = `${window.location.origin}?font=${currentFont}&main=${encodeURIComponent(
+      mainColor
+    )}&accent=${encodeURIComponent(accentColor)}`;
 
     const tempInput = document.createElement('input');
     tempInput.value = shareURL;
@@ -62,7 +64,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   toggleModeButton.addEventListener('click', () => {
     // Complement colors when mode changes
-    const root = document.documentElement;
     let mainColor = getComputedStyle(root).getPropertyValue('--main-color').trim();
     let accentColor = getComputedStyle(root).getPropertyValue('--accent-color').trim();
 

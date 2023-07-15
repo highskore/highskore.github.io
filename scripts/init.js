@@ -4,25 +4,30 @@ export function init() {
   const root = document.documentElement;
 
   const queryFont = getQueryParam('font');
-  const queryMainColor = getQueryParam('main');
-  const queryAccentColor = getQueryParam('accent');
+  const queryMainColor = getQueryParam('main') ? decodeURIComponent(getQueryParam('main')) : null;
+  const queryAccentColor = getQueryParam('accent') ? decodeURIComponent(getQueryParam('accent')) : null;
 
-  if (queryFont) {
-    localStorage.setItem('font', queryFont);
+  let defaultFont = 'smisome1';
+  let defaultMainColor = '#faf8f8';
+  let defaultAccentColor = '#191919';
+
+  let fontToApply = queryFont || localStorage.getItem('font') || defaultFont;
+  let mainColorToApply = queryMainColor || localStorage.getItem('mainColor') || defaultMainColor;
+  let accentColorToApply = queryAccentColor || localStorage.getItem('accentColor') || defaultAccentColor;
+
+  // If there is a font in the query or local storage, use it
+  if (fontToApply) {
+    localStorage.setItem('font', fontToApply);
   }
 
-  if (queryMainColor && queryAccentColor) {
-    root.style.setProperty('--main-color', queryMainColor);
-    root.style.setProperty('--accent-color', queryAccentColor);
-    localStorage.setItem('mainColor', queryMainColor);
-    localStorage.setItem('accentColor', queryAccentColor);
-  } else {
-    const storedMainColor = localStorage.getItem('mainColor');
-    const storedAccentColor = localStorage.getItem('accentColor');
+  // If there are colors in the query or local storage, use them
+  if (mainColorToApply) {
+    root.style.setProperty('--main-color', mainColorToApply);
+    localStorage.setItem('mainColor', mainColorToApply);
+  }
 
-    if (storedMainColor && storedAccentColor) {
-      root.style.setProperty('--main-color', storedMainColor);
-      root.style.setProperty('--accent-color', storedAccentColor);
-    }
+  if (accentColorToApply) {
+    root.style.setProperty('--accent-color', accentColorToApply);
+    localStorage.setItem('accentColor', accentColorToApply);
   }
 }
