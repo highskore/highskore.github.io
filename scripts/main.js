@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
   regenerateTitle(titleElement, isMobile, true, currentFont);
 });
 
-async function restartAnimation(titleElement, isMobile, currentFont) {
+async function restartAnimation(screenElement, titleElement, isMobile, currentFont) {
   const newFont = await regenerateTitle(titleElement, isMobile, false, currentFont);
 
   // Generate two distinct random colors
