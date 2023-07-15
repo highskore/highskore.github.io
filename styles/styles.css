@@ -8,7 +8,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Inconsolata', monospace;
-  height: 100lvh;
+  height: 100dvh;
   margin: 0;
 }
 
@@ -428,6 +428,5 @@ li:before {
     border: none;
     width: unset;
     padding: 5px;
-    height: 100%;
   }
 }
