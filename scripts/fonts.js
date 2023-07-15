@@ -135,7 +135,6 @@ export const fonts = [
   'stellar',
   'stop',
   'straight',
-  'sub-zero',
   'swampland',
   'THIS',
   'tanja',
@@ -161,7 +160,6 @@ export const mobile = [
   'smisome1',
   '3d',
   '4Max',
-  'sub-zero',
   'swampland',
   'THIS',
 ];
