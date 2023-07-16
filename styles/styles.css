@@ -30,10 +30,6 @@ body {
   font-size: 1.3vw;
 }
 
-.content {
-  width: min-content;
-}
-
 a {
   color: var(--accent-color);
 }
@@ -85,7 +81,6 @@ a {
 .socials {
   margin-top: 10px;
   margin-bottom: 5px;
-  width: max-content;
 }
 
 button {
@@ -363,14 +358,6 @@ li:before {
   .info {
     margin-top: 20px;
     margin-bottom: 30px;
-  }
-
-  .content {
-    width: 100%;
-  }
-
-  .socials {
-    width: 100%;
   }
 
   .screen {
