@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const toggleModeButton = document.getElementById('toggleMode');
   const regenerateButton = document.getElementById('restartButton');
   const shareButton = document.getElementById('shareButton');
+  const defaultButton = document.getElementById('defaultButton');
   const titleElement = document.querySelector('.title');
   const screenElement = document.querySelector('.container');
 
@@ -36,6 +37,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
   regenerateButton.addEventListener('click', async () => {
     currentFont = await restartAnimation(screenElement, titleElement, isMobile, currentFont);
+  });
+
+  // default
+
+  defaultButton.addEventListener('click', async () => {
+    let defaultFont = 'smisome1';
+    let defaultMainColor = '#faf8f8';
+    let defaultAccentColor = '#191919';
+    localStorage.setItem('font', 'smisome1');
+    localStorage.setItem('mainColor', '#faf8f8');
+    localStorage.setItem('accentColor', '#191919');
+    root.style.setProperty('--main-color', '#faf8f8');
+    root.style.setProperty('--accent-color', '#191919');
+    await regenerateTitle(titleElement, isMobile, true, defaultFont);
   });
 
   // share

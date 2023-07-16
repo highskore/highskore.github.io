@@ -30,7 +30,7 @@ const renderMatrix = () => {
   if (matrixActive === 'true') {
     // Generate the random letters and append them to the container
     const letters = 'HIGHSKOREHIGHSKOREHIGHSKOREHIGHSKORE0123456789';
-    const letterCount = Math.floor(window.innerWidth / 5);
+    const letterCount = Math.floor(window.innerWidth / 3);
 
     for (let i = 0; i < letterCount; i++) {
       const span = document.createElement('span');
